@@ -27,14 +27,36 @@ module.exports = {
       sourceType: "module",
       project: "./tsconfig.json",
     },
+    settings: {
+      "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"]
+      },
+      "import/resolver": {
+        node: {
+          extensions: [".js", ".jsx", ".ts", ".tsx"]
+        }
+      }
+    },
     rules: {
       "linebreak-style": "off",
       "prettier/prettier": [
         "error",
         {
           endOfLine: "auto",
+          trailingComma: "all",
         },
       ],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+     ],
       "import/prefer-default-export": "off",
       "react/prop-types": "off",
       "import/no-default-export": "error",
@@ -43,6 +65,7 @@ module.exports = {
       "jsx-a11y/interactive-supports-focus": "off",
       "jsx-a11y/click-events-have-key-events": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/quotes": "off",
       "jsx-a11y/control-has-associated-label": "off"
     },
     "overrides": [{
